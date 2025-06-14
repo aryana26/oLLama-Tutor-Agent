@@ -1,17 +1,16 @@
 # 🤖 LLM Chat Tutor Agent
 
-Here I have tried to solve a simple probelm of making a **conversational AI tutor** powered by **LLaMA 3** (via [Ollama]) that can:
+Here I have tried to solve a simple probelm of making a **conversational AI tutor** powered by **LLaMA 3** (via [Ollama](https://ollama.com)) that can:
 
-✅ Answer questions from **PDF course books** (RAG) . You as a tutor or student can upload study material from your course content for example CS771 for passing your midsems :P ! 
-🌐 Retrieve information from the **web** (DuckDuckGo) . Duh its needed if you wanna score above avg.
-📖 Pull facts from **Wikipedia**. Because one can never forget the OG wikipedia
-🧮 Perform **Python calculations and code execution** . Needed for actual coding probelms ( trust me you will get most of these in IITK courses)
-🧠 Maintain **chat history and context** . Because a tutor learns your ways and history :) like most IIT Kanpur Profs!
+- ✅ Answer questions from **PDF course books** (RAG) . You as a tutor or student can upload study material from your course content for example CS771 for passing your midsems :P !
+- 🌐 Retrieve information from the **web** (DuckDuckGo) . Duh its needed if you wanna score above avg.
+- 📖 Pull facts from **Wikipedia**. Because one can never forget the OG wikipedia
+- 🧮 Perform **Python calculations and code execution** . Needed for actual coding probelms ( trust me you will get most of these in IITK courses)
+- 🧠 Maintain **chat history and context** . Because a tutor learns your ways and history :) like most IIT Kanpur Profs!
 
 ---
 
 ## 🔧 Features
-
 | Feature               | Source                   | Method                             |
 |----------------------|--------------------------|------------------------------------|
 | Course Q&A           | Local PDF vector search  | FAISS + Sentence Embeddings (RAG) |
@@ -23,7 +22,7 @@ Here I have tried to solve a simple probelm of making a **conversational AI tuto
 ---
 
 ## 📁 Directory Structure
-
+```
 ollama_chat-tutor-agent_project/
 ├── agents/
 │ └── chat_agent.py # Main conversational agent setup
@@ -38,31 +37,32 @@ ollama_chat-tutor-agent_project/
 │ └── chat_loop.py # CLI chatbot loop
 ├── requirements.txt # Python dependencies
 └── README.md # This file
-
+```
 ## Project Architecture
+```
         ┌────────────┐
         │ User Input │
         └─────┬──────┘
               │
               ▼
-     ┌────────────────────┐
-     │  Conversational Agent (LLaMA3.2) │
-     └────┬─────────────┬────┬────┬──┘
-          │             │    │    │
-          ▼             ▼    ▼    ▼
+     ┌────────────────────---------------------------┐
+     │  Conversational Agent (LLaMA3.2)              │
+     └────┬─────────────┬────--──────----------------┘
+          │             │             │             │
+          ▼             ▼             ▼             ▼
  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌──────────────┐
- │ PDF Search  │ │ Web Search  │ │ Wikipedia    │ │ Python REPL  │
- │ (FAISS RAG) │ │ (DuckDuckGo)│ │ Retriever     │ │ Code Exec.   │
+ │ PDF Search  │ │ Web Search  │ │ Wikipedia   │ │ Python REPL  │
+ │ (FAISS RAG) │ │ (DuckDuckGo)│ │ Retriever   │ │   Code Exec. │
  └─────────────┘ └─────────────┘ └─────────────┘ └──────────────┘
-          │             │    │    │
-          └─────────────┴────┴────┘
+          │             │                 │           │
+          └─────────────┴─────────────────┴───────────┘
                         │
                         ▼
               ┌────────────────────┐
               │ Generated Response │
               └────────────────────┘
 
-
+```
 ---
 
 ## 🚀 Getting Started
