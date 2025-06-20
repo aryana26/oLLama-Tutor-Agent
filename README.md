@@ -7,6 +7,8 @@ Here I have tried to solve a simple probelm of making a **conversational AI tuto
 - 📖 Pull facts from **Wikipedia**. Because one can never forget the OG wikipedia
 - 🧮 Perform **Python calculations and code execution** . Needed for actual coding probelms ( trust me you will get most of these in IITK courses)
 - 🧠 Maintain **chat history and context** . Because a tutor learns your ways and history :) like most IIT Kanpur Profs!
+- 🧾 **Formatted equation rendering** using **LaTeX** 
+- A clean and interactive **Streamlit app interface**
 
 ---
 
@@ -18,6 +20,7 @@ Here I have tried to solve a simple probelm of making a **conversational AI tuto
 | Factual Queries      | Wikipedia Search         | LangChain Tool                     |
 | Math/Programming     | Python Tool              | Python REPL                        |
 | Conversational Memory| Chat History             | LangChain Memory                   |
+| Math Formatting      | LaTeX                    | Streamlit LaTeX Renderer           |
 
 ---
 
@@ -35,6 +38,7 @@ ollama_chat-tutor-agent_project/
 ├── scripts/
 │ ├── index_data.py # Index PDF content into vector store
 │ └── chat_loop.py # CLI chatbot loop
+├── app.py # 🔥 Streamlit UI app
 ├── requirements.txt # Python dependencies
 └── README.md # This file
 ```
@@ -70,7 +74,7 @@ ollama_chat-tutor-agent_project/
 ### 1. Install Dependencies
 
 Make sure you have Python 3.10+ and FAISS-compatible system. And install ollama on your local PC for running LLM llama3.2
-
+Ensure all dependencies are installed
 ```bash
 pip install -r requirements.txt
 ollama run llama3.2
@@ -81,5 +85,5 @@ python scripts/index_data.py
 ```
 ### 3. Start the agent
 ```bash
-python scripts/chat_loop.py
+streamlit run app.py
 ```
